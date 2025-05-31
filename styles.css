@@ -1,0 +1,172 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		interpolate-size: allow-keywords;
+	}
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word;
+}
+
+p {
+	text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-wrap: balance;
+}
+/* end of Josh's reset */
+
+/* My CSS */
+:root {
+	--bg: #303f46;
+	--input-bg: #333a3d;
+	--img-bg: #59c49c;
+
+	--text-color-light: #f1f2f6;
+	--text-color-dark: #1d2630;
+
+	--border-color: #ffe391;
+
+	--btn-color: #ffc727;
+	--btn-hover: #ffe391;
+
+	--success-color: #33f56d;
+	--error-color: #ff6b6b;
+}
+body {
+	color: var(--text-color-light);
+	background: var(--bg);
+	display: flex;
+	font-size: 20px;
+	min-height: 100vh;
+}
+
+h1 {
+	font-size: 32px;
+}
+
+a {
+	color: var(--text-color-light);
+	font-size: 16px;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.img-container,
+.form-container {
+	padding: 15px;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+}
+
+.img-container {
+	flex: 1;
+	flex-direction: column;
+	justify-content: space-between;
+	background: var(--img-bg);
+}
+
+.img-wrapper {
+	text-align: center;
+}
+
+/* Form */
+
+.form-container {
+	flex: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-content {
+	display: flex;
+	flex-direction: column;
+	gap: 3rem;
+	padding: 20px;
+	border: 3px solid var(--img-bg);
+}
+.form-group {
+	display: flex;
+	gap: 3rem;
+}
+
+/* Input */
+.input-hint {
+	margin: 5px;
+	font-size: 12px;
+}
+
+input {
+	color: var(--text-color-light);
+	background-color: var(--input-bg);
+	border: 2px solid var(--border-color);
+	border-radius: 5px;
+	padding: 2px 5px;
+}
+
+button {
+	color: var(--text-color-dark);
+	background: var(--btn-color);
+	border: none;
+	border-radius: 5px;
+	padding: 5px 25px;
+	margin-bottom: 10px;
+}
+
+button:hover {
+	background: var(--btn-hover);
+	cursor: pointer;
+}
+
+/* TODO: Form validation UI */
