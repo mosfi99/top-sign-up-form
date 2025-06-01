@@ -65,6 +65,22 @@ h6 {
 
 /* My CSS */
 :root {
+	font-size: 16px;
+
+	/* Font size scale */
+	--f-xs: 0.75rem; /* 12px */
+	--f-s: 1rem; /* 16px */
+	--f-m: 1.25rem; /* 20px */
+	--f-l: 2.5rem; /* 40px */
+	--f-xl: 3rem; /* 48px */
+
+	/* Spacing scale */
+	--space-xs: 0.25rem; /* 4px */
+	--space-s: 0.5rem; /* 8px */
+	--space-m: 1rem; /* 16px */
+	--space-l: 2rem; /* 32px */
+	--space-xl: 3rem; /* 48px */
+
 	--bg: #303f46;
 	--input-bg: #333a3d;
 	--img-bg: #59c49c;
@@ -72,29 +88,26 @@ h6 {
 	--text-color-light: #f1f2f6;
 	--text-color-dark: #1d2630;
 
-	--border-color: #ffe391;
+	--border-color: #6a7b83;
 
 	--btn-color: #ffc727;
-	--btn-hover: #ffe391;
 
+	--focus-color: #ffe391;
 	--success-color: #33f56d;
 	--error-color: #ff6b6b;
 }
+
 body {
 	color: var(--text-color-light);
 	background: var(--bg);
 	display: flex;
-	font-size: 20px;
 	min-height: 100vh;
-}
-
-h1 {
-	font-size: 32px;
+	font-size: var(--f-s);
 }
 
 a {
 	color: var(--text-color-light);
-	font-size: 16px;
+	font-size: var(--f-s);
 }
 
 a:hover {
@@ -103,12 +116,13 @@ a:hover {
 
 .img-container,
 .form-container {
-	padding: 15px;
+	padding: var(--space-m);
 	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 }
 
+/* Image */
 .img-container {
 	flex: 1;
 	flex-direction: column;
@@ -116,12 +130,15 @@ a:hover {
 	background: var(--img-bg);
 }
 
+.img-container > h1 {
+	font-size: var(--f-xl);
+}
+
 .img-wrapper {
 	text-align: center;
 }
 
 /* Form */
-
 .form-container {
 	flex: 2;
 	display: flex;
@@ -132,41 +149,97 @@ a:hover {
 .form-content {
 	display: flex;
 	flex-direction: column;
-	gap: 3rem;
-	padding: 20px;
-	border: 3px solid var(--img-bg);
+	padding: var(--space-l);
+	gap: var(--space-m);
+}
+
+.form-content > h1 {
+	font-size: var(--f-l);
+}
+
+.form-group-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-l);
 }
 .form-group {
 	display: flex;
-	gap: 3rem;
+	gap: var(--space-xl);
+}
+/* Input */
+.input-wrapper {
+	flex: 1;
 }
 
-/* Input */
 .input-hint {
-	margin: 5px;
-	font-size: 12px;
+	margin: var(--space-xs) var(--space-m);
+	font-size: var(--f-xs);
+}
+
+.checkbox-wrapper,
+.account-wrapper {
+	display: flex;
+	align-items: baseline;
+	gap: var(--space-s);
+	margin-left: var(--space-xs);
+}
+
+.checkbox-wrapper label,
+.checkbox-wrapper a {
+	font-size: var(--f-xs);
+}
+
+.checkbox-wrapper {
+	margin-bottom: var(--space-m);
+}
+
+.checkbox {
+	width: fit-content;
 }
 
 input {
 	color: var(--text-color-light);
 	background-color: var(--input-bg);
-	border: 2px solid var(--border-color);
+	outline: 2px solid var(--border-color);
+	border: none;
 	border-radius: 5px;
-	padding: 2px 5px;
+	padding: var(--space-s) var(--space-m);
+	/* prevents default min-width, which can cause overflow */
+	width: 100%;
 }
 
 button {
 	color: var(--text-color-dark);
 	background: var(--btn-color);
+	transition: background-color 0.2s ease;
 	border: none;
 	border-radius: 5px;
-	padding: 5px 25px;
-	margin-bottom: 10px;
+	padding: var(--space-s) var(--space-l);
 }
 
 button:hover {
-	background: var(--btn-hover);
+	background: var(--focus-color);
 	cursor: pointer;
 }
 
-/* TODO: Form validation UI */
+/* Form validation UI */
+input:not(:placeholder-shown):valid {
+	outline: 3px solid var(--success-color);
+}
+
+input:not(:placeholder-shown):invalid {
+	outline: 3px solid var(--error-color);
+}
+
+input:focus:invalid {
+	outline: 2px solid var(--focus-color);
+}
+
+.checkbox:not(:placeholder-shown):invalid {
+	outline: none;
+}
+
+.checkbox:not(:placeholder-shown):valid {
+	outline: none;
+	accent-color: var(--success-color);
+}

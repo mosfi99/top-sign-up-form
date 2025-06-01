@@ -19,75 +19,89 @@
 		</div>
 		<div class="form-container">
 			<form>
-				<!-- TODO: the selected input, which should have a blue border and subtle box-shadow. :focus -->
 				<div class="form-content">
 					<h1>Get started</h1>
-					<div class="form-group">
-						<div class="input-wrapper">
-							<input
-								type="text"
-								name="first_name"
-								id="first_name"
-								placeholder="First Name"
-								required />
+					<div class="form-group-wrapper">
+						<div class="form-group">
+							<div class="input-wrapper">
+								<input
+									type="text"
+									name="first_name"
+									id="first_name"
+									placeholder="First Name"
+									required />
+							</div>
+							<div class="input-wrapper">
+								<input
+									type="text"
+									name="last_name"
+									id="last_name"
+									placeholder="Last Name"
+									required />
+							</div>
 						</div>
-						<div class="input-wrapper">
-							<input
-								type="text"
-								name="last_name"
-								id="last_name "
-								placeholder="Last Name"
-								required />
+						<div class="form-group">
+							<div class="input-wrapper">
+								<input
+									type="email"
+									name="email"
+									id="user_email"
+									placeholder="name@example.com"
+									required />
+							</div>
+							<div class="input-wrapper">
+								<input
+									type="tel"
+									name="phone_number"
+									id="phone_number"
+									placeholder="Phone Number"
+									required />
+								<!-- TODO: Add region pattern e.g. +1 123 456 7890 -->
+							</div>
+						</div>
+						<div class="form-group">
+							<!-- TODO: Validating that the password fields match each other requires JavaScript. Using JavaScript to validate forms is covered in a future lesson. For now, just validate each field separately. -->
+							<div class="input-wrapper">
+								<input
+									pattern="[a-zA-Z0-9]{8,}"
+									type="password"
+									name="password"
+									id="user_password"
+									placeholder="Password"
+									required />
+								<p class="input-hint">8 or more characters.</p>
+							</div>
+
+							<div class="input-wrapper">
+								<input
+									type="password"
+									name="confirm_password"
+									id="user_confirm_password"
+									placeholder="Confirm Password"
+									required />
+							</div>
 						</div>
 					</div>
-					<div class="form-group">
-						<div class="input-wrapper">
+					<div class="form-footer">
+						<div class="checkbox-wrapper">
 							<input
-								type="email"
-								name="email"
-								id="user_email"
-								placeholder="name@example.com"
+								class="checkbox"
+								type="checkbox"
+								name="privacy"
+								id="privacy"
 								required />
-						</div>
-						<div class="input-wrapper">
-							<input
-								type="tel"
-								name="phone_number"
-								id="phone_number"
-								placeholder="Phone Number"
-								required />
-							<!-- TODO: Add e.g. +1 123 456 7890 -->
-						</div>
-					</div>
-					<div class="form-group">
-						<!-- TODO: the password inputs should have a red border if they contain an invalid password. :invalid -->
-						<!-- TODO: Validating that the password fields match each other requires JavaScript. Using JavaScript to validate forms is covered in a future lesson. For now, just validate each field separately. -->
-						<div class="input-wrapper">
-							<input
-								pattern="[a-zA-Z0-9]{8,}"
-								type="password"
-								name="password"
-								id="user_password"
-								placeholder="Password"
-								required />
-							<p class="input-hint">Must be at least 8 characters</p>
+							<label for="privacy"
+								>I agree that my personal data will be processed in accordance
+								with the <a href="#">Privacy Policy</a></label
+							>
 						</div>
 
-						<div class="input-wrapper">
-							<input
-								type="password"
-								name="confirm_password"
-								id="user_confirm_password"
-								placeholder="Confirm Password"
-								required />
+						<div class="account-wrapper">
+							<button type="submit">Create Account</button>
+							<p>
+								Already have an account? <span><a href="#">SIGN IN</a></span>
+							</p>
 						</div>
-					</div>
-
-					<div class="create-acount">
-						<button type="submit" class="submit-btn">Create Account</button>
-						<p>
-							Already have an account? <span><a href="#">SIGN IN</a></span>
-						</p>
 					</div>
 				</div>
 			</form>
