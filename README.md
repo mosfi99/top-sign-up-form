@@ -27,4 +27,4 @@ CSS-only feedback for valid/invalid inputs (JavaScript validation covered in fut
 
 ---
 
-\*Built with ❤️ by mosfi99\*
+\*Built with ❤️ by mosfi99*\
