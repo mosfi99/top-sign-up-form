@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Huninn&display=swap');
+
 /*
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
@@ -81,76 +83,94 @@ h6 {
 	--space-l: 2rem; /* 32px */
 	--space-xl: 3rem; /* 48px */
 
-	--bg: #303f46;
-	--input-bg: #333a3d;
-	--img-bg: #59c49c;
+	/* Colors  */
+	--text-color-light: #ffffff;
+	--text-color-dark: #002147;
 
-	--text-color-light: #f1f2f6;
-	--text-color-dark: #1d2630;
+	--darker-color: #333a3d;
+	--dark-color: #303f46;
+	--gray-color: #6a7b83;
 
-	--border-color: #6a7b83;
+	--aquagreen-color: #8bdfc0;
+	--yellow-color: #ffc727;
 
-	--btn-color: #ffc727;
-
+	--btn-background: #ffc52762;
 	--focus-color: #ffe391;
 	--success-color: #33f56d;
 	--error-color: #ff6b6b;
 }
 
 body {
+	font-family: 'Huninn', sans-serif;
 	color: var(--text-color-light);
-	background: var(--bg);
+	background: var(--dark-color);
+	font-size: var(--f-s);
 	display: flex;
 	min-height: 100vh;
-	font-size: var(--f-s);
 }
-
 a {
-	color: var(--text-color-light);
-	font-size: var(--f-s);
+	color: inherit;
 }
-
 a:hover {
 	text-decoration: none;
 }
 
-.img-container,
-.form-container {
-	padding: var(--space-m);
-	min-height: 100vh;
+aside,
+main {
 	display: flex;
 	justify-content: center;
 }
 
-/* Image */
-.img-container {
+/* left side*/
+aside {
 	flex: 1;
+	min-width: 280px;
+	background: var(--aquagreen-color);
+	color: var(--text-color-dark);
+	padding: var(--space-m);
+}
+
+.aside-container {
+	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	background: var(--img-bg);
-}
-
-.img-container > h1 {
-	font-size: var(--f-xl);
-}
-
-.img-wrapper {
+	gap: var(--space-m);
+	width: 90%;
 	text-align: center;
 }
 
-/* Form */
-.form-container {
+.brand-name {
+	font-size: var(--f-xl);
+	letter-spacing: 2px;
+	margin-left: var(--space-m);
+	text-align: left;
+}
+
+.aside-text {
+	color: var(--text-color-dark);
+	font-weight: 600;
+	margin: 0 auto;
+	width: 85%;
+}
+
+/* Form area*/
+main {
 	flex: 2;
+	padding: var(--space-l);
+}
+
+form {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 80%;
+	min-width: 460px;
 }
 
 .form-content {
 	display: flex;
 	flex-direction: column;
-	padding: var(--space-l);
-	gap: var(--space-m);
+	gap: var(--space-l);
 }
 
 .form-content > h1 {
@@ -166,6 +186,7 @@ a:hover {
 	display: flex;
 	gap: var(--space-xl);
 }
+
 /* Input */
 .input-wrapper {
 	flex: 1;
@@ -176,31 +197,20 @@ a:hover {
 	font-size: var(--f-xs);
 }
 
-.checkbox-wrapper,
-.account-wrapper {
-	display: flex;
-	align-items: baseline;
-	gap: var(--space-s);
-	margin-left: var(--space-xs);
-}
-
-.checkbox-wrapper label,
-.checkbox-wrapper a {
-	font-size: var(--f-xs);
-}
-
-.checkbox-wrapper {
-	margin-bottom: var(--space-m);
-}
-
+/* form footer */
 .checkbox {
 	width: fit-content;
 }
 
+.checkbox-wrapper,
+.create-account-btn {
+	margin-bottom: var(--space-m);
+}
+
 input {
 	color: var(--text-color-light);
-	background-color: var(--input-bg);
-	outline: 2px solid var(--border-color);
+	background-color: var(--darker-color);
+	outline: 2px solid var(--gray-color);
 	border: none;
 	border-radius: 5px;
 	padding: var(--space-s) var(--space-m);
@@ -208,17 +218,32 @@ input {
 	width: 100%;
 }
 
-button {
-	color: var(--text-color-dark);
-	background: var(--btn-color);
-	transition: background-color 0.2s ease;
-	border: none;
+.btn-create-account {
+	font-weight: bold;
+	background: none;
 	border-radius: 5px;
-	padding: var(--space-s) var(--space-l);
+	padding: var(--space-s) var(--space-m);
+	margin-bottom: var(--space-m);
+	color: var(--yellow-color);
+	border: 2px solid var(--yellow-color);
+	transition: background 0.2s;
 }
 
-button:hover {
-	background: var(--focus-color);
+.sign-in {
+	margin-left: var(--space-s);
+	text-decoration: underline 2px;
+	font-weight: bold;
+}
+
+.btn-create-account:hover {
+	cursor: pointer;
+	background: var(--btn-background);
+	color: var(--text-color-dark);
+}
+
+.sign-in:hover {
+	color: var(--aquagreen-color);
+	text-decoration: none;
 	cursor: pointer;
 }
 
